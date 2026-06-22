@@ -10,9 +10,9 @@ public class FinancialForecast {
 
     // MAIN METHOD
     public static void main(String[] args) {
-        double initialValue = 1000.0; // Initial investment amount in ₹
-        double rate = 0.05;           // Annual growth rate (5%)
-        int years = 5;                // Number of years to forecast
+        double initialValue = 5000.0; // Initial investment amount in ₹
+        double rate = 0.08;           // Annual growth rate (8%)
+        int years = 10;                // Number of years to forecast
 
         double futureValue = predictFutureValue(initialValue, rate, years);
 
