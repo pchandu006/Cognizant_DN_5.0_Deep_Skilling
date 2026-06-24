@@ -1,0 +1,7 @@
+
+public class Multiplication {
+
+	 public int MUL(int a, int b) {
+	        return a * b;
+	    }
+}
