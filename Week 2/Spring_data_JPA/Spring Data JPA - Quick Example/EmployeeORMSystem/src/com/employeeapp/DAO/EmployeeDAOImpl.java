@@ -1,4 +1,4 @@
-package com.sample.DAO;
+package com.employeeapp.DAO;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional; 
 
-import com.sample.Models.Employee;
+import com.employeeapp.Models.Employee;
 
 @Repository
 @Transactional
@@ -18,33 +18,33 @@ public class EmployeeDAOImpl implements EmployeeDAO {
     SessionFactory sessionFactory;
 
     @Override
-    public void Save(Employee emp) {
+    public void addEmployee(Employee emp) {
         Session session = sessionFactory.getCurrentSession();
         session.persist(emp);
-        System.out.println("Employee Details Saved Successfully!!");
+        System.out.println("Employee record added successfully.");
     }
 
     @Override
-    public void Update(Employee emp) {
+    public void updateEmployee(Employee emp) {
         Session session = sessionFactory.getCurrentSession();
         session.merge(emp);
-        System.out.println("Employee Details Updated Successfully!!");
+        System.out.println("Employee record updated successfully.");
     }
 
     @Override
-    public void Delete(int id) {
+    public void deleteEmployee(int id) {
         Session session = sessionFactory.getCurrentSession();
         Employee emp = session.get(Employee.class, id);
         if (emp != null) {
             session.remove(emp);
-            System.out.println("Employee Data Deleted Successfully!!");
+            System.out.println("Employee record removed successfully.");
         } else {
-            System.out.println("No Data Found With Given Id");
+            System.out.println("Employee ID not found.");
         }
     }
 
     @Override
-    public List<Employee> getAll() {
+    public List<Employee> fetchEmployees() {
         Session session = sessionFactory.getCurrentSession();
         return session.createQuery("From Employee", Employee.class).list();
     }

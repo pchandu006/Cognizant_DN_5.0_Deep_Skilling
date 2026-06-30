@@ -1,4 +1,4 @@
-package com.sample.Config;
+package com.employeeapp.Config;
 
 import java.util.Properties;
 
@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @Configuration
-@ComponentScan("com.sample")
+@ComponentScan("com.employeeapp")
 @EnableTransactionManagement
 public class AppConfig 
 {
@@ -25,9 +25,9 @@ public class AppConfig
 	{
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/springormDB");
+		ds.setUrl("jdbc:mysql://localhost:3306/employee_db");
 		ds.setUsername("root");
-		ds.setPassword("yamahapsrE353@123");
+		ds.setPassword("123456");
 		return ds;
 	}
 	
@@ -36,7 +36,7 @@ public class AppConfig
 	{
 		LocalSessionFactoryBean factory = new LocalSessionFactoryBean();
 		factory.setDataSource(getDataSource());
-		factory.setPackagesToScan("com.sample.Models");
+		factory.setPackagesToScan("com.employeeapp.Models");
 		Properties pr = new Properties();
 		pr.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		pr.put("hibernate.show_sql", "true");
